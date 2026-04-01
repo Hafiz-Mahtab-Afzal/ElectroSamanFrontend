@@ -1,4 +1,5 @@
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL;
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 
@@ -17,7 +18,7 @@ const Authprovider = ({children}) => {
         setdark(!dark)
     }
 
-    axios.defaults.baseURL = "http://localhost:4321/api/v1"
+    axios.defaults.baseURL = `${API}/api/v1`
 
     useEffect(() => {
        const userAuth = JSON.parse(localStorage.getItem("auth"))

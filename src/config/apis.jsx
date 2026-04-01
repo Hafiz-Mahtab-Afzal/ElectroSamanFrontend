@@ -1,9 +1,11 @@
   
+const API = import.meta.env.VITE_API_URL;
+
  const apis = {
 
 
-          "prod" : "http://localhost:4321/api/v1/products",
-          "auth" : "http://localhost:4321/api/v1/users"
+          "prod" : `${API}/api/v1/products`,
+          "auth" : `${API}/api/v1/users`
 
 
 
