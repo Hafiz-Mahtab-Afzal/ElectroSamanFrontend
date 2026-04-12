@@ -11,7 +11,7 @@ import { BsFillCartFill, BsFillChatRightTextFill, BsFillChatSquareTextFill } fro
 import { BsCart3, BsMoonStarsFill } from "react-icons/bs";
 import { IoMdSunny } from "react-icons/io";
 import { useContext, useEffect, useRef, useState } from "react"
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { IoSearch } from 'react-icons/io5';
 import { BiCartAdd } from "react-icons/bi";
 import { BsFillCartXFill } from "react-icons/bs";
@@ -24,7 +24,7 @@ import profile from "../img/profile.png";
 
 
 const Navigation = () => {
-
+  const navigate = useNavigate()
   const {Auth, setAuth,dark,changedark} = useContext(Authcontext)
   const dispatch = useDispatch()
 
@@ -38,7 +38,7 @@ const Navigation = () => {
   const cartItems = useSelector((state) => state.cartSlice.items)
   const cartTotalQuantity = useSelector((state) => state.cartSlice.totalQuantity)
   const wishlistItems = useSelector((state) => state.wishlistSlice.items)
-  console.log(cartItems)
+  // console.log(cartItems)
   // Dropdown states
   const [showCartDropdown, setShowCartDropdown] = useState(false)
   const [showWishlistDropdown, setShowWishlistDropdown] = useState(false)
@@ -48,7 +48,7 @@ const Navigation = () => {
     const discountedPrice = discountPriceCalc(item.onsale, item.discount, item.price)
     return total + (discountedPrice * item.quantity)
   }, 0)
-  console.log(cartTotal)
+  // console.log(cartTotal)
   const handleRemoveFromCart = (id) => {
     dispatch(removeItemComplete(id))
   }
